@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sucursales y Puntos de retiro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container mt-4">
+		<a th:href="@{/nuevo}" class="btn btn-primary">Nuevo</a>
+		<a th:href="@{/buscarCercana}" class="btn btn-primary">Buscar cerca</a>
+		<table class="table">
+			<thead></thead>
+				<tr>
+					<th>ID</th>
+					<th>LATITUD</th>
+					<th>LONGITUD</th>
+					<th>ACCIONES</th>
+				</tr>
+			<tbody>
+				<tr th:each=nodo:${nodos}>
+					<td th:text="${nodo.id}"></td>
+					<td th:text="${nodo.latitud}"></td>
+					<td th:text="${nodo.longitud}"></td>
+					<td>
+						<a th:href="@{/editar/}+${nodo.id}" class="btn btn-warning">Editar</a>
+						<a th:onclick="eliminar([[${nodo.id}]])" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="funciones.js"></script>
+</body>
+</html>

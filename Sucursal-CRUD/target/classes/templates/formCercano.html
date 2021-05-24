@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Buscar Cercano</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form th:action="@{/listarCercana}" th:object=${nodo} method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h3>Buscar Cercano</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<input th:field="*{id}" type="hidden" class="form-control" value="temp">
+						</div>
+						<div class="form-group">
+							<label>LATITUD</label>
+							<input th:field="*{latitud}" type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>LONGITUD</label>
+							<input th:field="*{longitud}" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Buscar" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
